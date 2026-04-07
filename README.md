@@ -10,20 +10,24 @@ This is a highly imbalanced problem (~84.5% No Purchase vs 15.5% Purchase). In a
 Model Architecture (Both Frameworks)
 
 Similar MLP structure used in both:
-Input layer → 128 neurons (ReLU + BatchNorm + Dropout 0.3)
-Hidden layer → 64 neurons (ReLU + BatchNorm + Dropout 0.2)
-Hidden layer → 32 neurons (ReLU)
-Output layer → 1 neuron (Sigmoid) for binary classification
+*Input layer → 128 neurons (ReLU + BatchNorm + Dropout 0.3)
+*Hidden layer → 64 neurons (ReLU + BatchNorm + Dropout 0.2)
+*Hidden layer → 32 neurons (ReLU)
+*Output layer → 1 neuron (Sigmoid) for binary classification
 
 Optimizer: Adam
+
 Loss: Binary Crossentropy
+
 Early stopping based on validation loss
 
 Key Results
-TensorFlow Model Performance (on Test Set):
+*TensorFlow Model Performance (on Test Set):
 
 Accuracy: ~90%
+
 Macro F1-score: ~0.78
+
 Purchase class (minority): Precision ~0.71, Recall ~0.56, F1 ~0.62
 
 Observations from Training:
