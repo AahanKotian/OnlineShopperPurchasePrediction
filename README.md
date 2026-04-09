@@ -1,42 +1,42 @@
-# OnlineShopperPurchasePrediction
-This is a project using the Online Shoppers Purchasing Intention dataset with both TensorFlow and PyTorch. This dataset contains features of user sessions on an online shopping website, with the goal of predicting whether a user will make a purchase. Here is the dataset: https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset. 
+# Online Shopper Purchase Intention Prediction
 
-Explanation of Results (Ready to put in README)
+**Predicting whether an online visitor will make a purchase using Neural Networks (TensorFlow + PyTorch)**
 
-Business Context
+![Banner Image](https://via.placeholder.com/800x200?text=Ecommerce+Purchase+Prediction)  
+*(Add a relevant banner or confusion matrix / ROC curve here)*
 
-The dataset contains features extracted from online shopping sessions (Administrative, Informational, ProductRelated pages, BounceRates, ExitRates, PageValues, VisitorType, etc.). The goal is to predict whether the session resulted in a purchase (Revenue = True).
-This is a highly imbalanced problem (~84.5% No Purchase vs 15.5% Purchase). In a real business setting, correctly identifying potential buyers (high Recall on the minority class) is often more valuable than overall accuracy.
-Model Architecture (Both Frameworks)
+## 📋 Project Overview
+This project builds and compares **Multi-Layer Perceptron (MLP)** models in both **TensorFlow** and **PyTorch** to predict purchase intent from the UCI Online Shoppers Purchasing Intention Dataset.
 
-Similar MLP structure used in both:
+**Business Problem**: E-commerce companies lose revenue when they fail to identify high-intent visitors. This model helps prioritize marketing, personalization, or interventions for sessions likely to convert.
 
-Input layer → 128 neurons (ReLU + BatchNorm + Dropout 0.3)
+**Key Challenge**: Highly imbalanced dataset (~85% no-purchase).
 
-Hidden layer → 64 neurons (ReLU + BatchNorm + Dropout 0.2)
+**Why it matters**: Focus on **Recall** for the minority (purchase) class rather than just accuracy.
 
-Hidden layer → 32 neurons (ReLU)
+## 🚀 Key Features
+- End-to-end pipeline: EDA → Preprocessing → Modeling → Evaluation
+- Dual implementation (TensorFlow & PyTorch) to demonstrate framework flexibility
+- Handling class imbalance with awareness of business impact
+- Early stopping, BatchNorm, Dropout for regularization
 
-Output layer → 1 neuron (Sigmoid) for binary classification
+## 🛠 Tech Stack
+- **Languages**: Python
+- **Frameworks**: TensorFlow, PyTorch
+- **Libraries**: pandas, scikit-learn, matplotlib, seaborn, numpy
+- **Environment**: Jupyter Notebook
 
-Optimizer: Adam
+## 📊 Results
 
-Loss: Binary Crossentropy
+| Model          | Accuracy | Macro F1 | Purchase Recall | Purchase F1 |
+|----------------|----------|----------|-----------------|-------------|
+| TensorFlow MLP | ~90%    | ~0.78   | ~0.56          | ~0.62      |
+| PyTorch MLP    | [Add]   | [Add]   | [Add]          | [Add]      |
 
-Early stopping based on validation loss
+**Insights**:
+- Good overall accuracy but room for improvement on minority class recall.
+- Business recommendation: Adjust decision threshold or use techniques like SMOTE / class weights.
 
-Key Results:
+*(Add confusion matrices, ROC curves, or training loss plots here — use GitHub markdown image links)*
 
-TensorFlow Model Performance (on Test Set):
-
-Accuracy: ~90%
-
-Macro F1-score: ~0.78
-
-Purchase class (minority): Precision ~0.71, Recall ~0.56, F1 ~0.62
-
-Observations from Training:
-
-The model converged reasonably well.
-Validation loss and accuracy stabilized after ~15–20 epochs.
-Some signs of slight overfitting (training accuracy higher than validation), which is common with imbalanced data.
+## 📁 Project Structure
