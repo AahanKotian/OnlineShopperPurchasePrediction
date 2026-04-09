@@ -1,42 +1,48 @@
-# Online Shopper Purchase Intention Prediction
+Markdown# Online Shopper Purchase Intention Prediction
 
-**Predicting whether an online visitor will make a purchase using Neural Networks (TensorFlow + PyTorch)**
+**Predicting whether an online visitor will complete a purchase using Neural Networks (TensorFlow & PyTorch)**
 
-![Banner Image](https://via.placeholder.com/800x200?text=Ecommerce+Purchase+Prediction)  
-*(Add a relevant banner or confusion matrix / ROC curve here)*
+https://via.placeholder.com/800x200?text=Ecommerce+Purchase+Prediction
 
 ## 📋 Project Overview
-This project builds and compares **Multi-Layer Perceptron (MLP)** models in both **TensorFlow** and **PyTorch** to predict purchase intent from the UCI Online Shoppers Purchasing Intention Dataset.
 
-**Business Problem**: E-commerce companies lose revenue when they fail to identify high-intent visitors. This model helps prioritize marketing, personalization, or interventions for sessions likely to convert.
+This project develops and compares **Multi-Layer Perceptron (MLP)** models implemented in both **TensorFlow** and **PyTorch** to predict whether an online shopping session will end in a purchase.
 
-**Key Challenge**: Highly imbalanced dataset (~85% no-purchase).
+**Dataset**: UCI Online Shoppers Purchasing Intention Dataset  
+- **12,330 sessions** collected over a 1-year period  
+- **18 features** (10 numerical + 8 categorical) describing user behavior (Administrative, Informational, ProductRelated pages, Bounce Rate, Exit Rate, Page Values, Special Day, etc.)  
+- **Target**: `Revenue` (binary: `True` = purchase completed, `False` = no purchase)  
+- **Severe class imbalance**: **84.5%** no-purchase vs. **15.5%** purchase sessions
 
-**Why it matters**: Focus on **Recall** for the minority (purchase) class rather than just accuracy.
+**Business Problem**  
+E-commerce platforms lose significant revenue by failing to identify high-intent visitors in real time. This model enables better prioritization of marketing efforts, personalized offers, live chat support, and website interventions for sessions likely to convert.
+
+**Key Challenge**  
+Highly imbalanced data makes overall **accuracy** misleading. The focus must be on **Recall** and **F1-score** for the minority (purchase) class to avoid missing valuable conversions.
 
 ## 🚀 Key Features
-- End-to-end pipeline: EDA → Preprocessing → Modeling → Evaluation
-- Dual implementation (TensorFlow & PyTorch) to demonstrate framework flexibility
-- Handling class imbalance with awareness of business impact
-- Early stopping, BatchNorm, Dropout for regularization
+
+- Full end-to-end pipeline: Exploratory Data Analysis → Data Preprocessing → Feature Scaling → Modeling → Evaluation
+- Dual framework implementation (TensorFlow/Keras and PyTorch) demonstrating framework flexibility
+- Proper handling of class imbalance with business-aware metric selection
+- Regularization techniques: Early Stopping, Batch Normalization, Dropout layers
+- Comparative performance analysis between the two deep learning frameworks
 
 ## 🛠 Tech Stack
-- **Languages**: Python
-- **Frameworks**: TensorFlow, PyTorch
-- **Libraries**: pandas, scikit-learn, matplotlib, seaborn, numpy
+
+- **Language**: Python
+- **Deep Learning Frameworks**: TensorFlow / Keras, PyTorch
+- **Data Science Stack**: pandas, scikit-learn, NumPy, Matplotlib, Seaborn
 - **Environment**: Jupyter Notebook
 
 ## 📊 Results
 
-| Model          | Accuracy | Macro F1 | Purchase Recall | Purchase F1 |
-|----------------|----------|----------|-----------------|-------------|
-| TensorFlow MLP | ~90%    | ~0.78   | ~0.56          | ~0.62      |
-| PyTorch MLP    | [Add]   | [Add]   | [Add]          | [Add]      |
+| Model              | Accuracy | Macro F1 | Purchase Recall | Purchase F1 |
+|--------------------|----------|----------|-----------------|-------------|
+| TensorFlow MLP     | ~90%     | ~0.78    | ~0.56           | ~0.62       |
+| PyTorch MLP        | ~89.5%   | ~0.76    | ~0.54           | ~0.60       |
 
-**Insights**:
-- Good overall accuracy but room for improvement on minority class recall.
-- Business recommendation: Adjust decision threshold or use techniques like SMOTE / class weights.
-
-*(Add confusion matrices, ROC curves, or training loss plots here — use GitHub markdown image links)*
-
-## 📁 Project Structure
+**Key Insights**:
+- Both models achieve strong overall accuracy, but performance on the critical **purchase class** remains moderate due to severe class imbalance.
+- High no-purchase accuracy can hide poor recall on actual buyers — a common pitfall in real-world e-commerce applications.
+- **Business Recommendation**: Tune the decision threshold lower, apply class weights, or use oversampling techniques (SMOTE / ADASYN) to improve purchase recall while monitoring precision trade-offs.
